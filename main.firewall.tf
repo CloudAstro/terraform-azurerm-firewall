@@ -8,7 +8,7 @@ resource "azurerm_firewall" "this" {
   dns_servers         = var.dns_servers
   dns_proxy_enabled   = var.dns_proxy_enabled
   private_ip_ranges   = var.private_ip_ranges
-  threat_intel_mode   = var.threat_intel_mode
+  threat_intel_mode   = var.sku_name == "AZFW_Hub" ? null : var.threat_intel_mode
   zones               = var.zones
   tags                = var.tags
 
